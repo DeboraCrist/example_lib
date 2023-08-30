@@ -15,8 +15,10 @@ class Product {
 
 class Pizza extends Product {
   final String nutritionInfo;
+  final List<String> additionalIngredients; // Lista de ingredientes adicionais
 
-  Pizza(String id, String name, double price, this.nutritionInfo)
+  Pizza(String id, String name, double price, this.nutritionInfo,
+      this.additionalIngredients)
       : super(id, name, price, ProductCategory.Pizza);
 }
 
