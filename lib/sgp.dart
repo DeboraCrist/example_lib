@@ -22,5 +22,5 @@ class SGP {
     return total;
   }
 
-  // Outras funcionalidades podem ser implementadas aqui
+  // Other functionalities can be implemented here
 }
