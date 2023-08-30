@@ -16,11 +16,17 @@ class Product {
 class Pizza extends Product {
   final String nutritionInfo;
   final List<String> additionalIngredients;
-  final String customName; // Nome personalizado para a pizza
+  final String customName;
+  final PizzaSize size; // Novo campo para tamanho da pizza
 
   Pizza(String id, String name, double price, this.nutritionInfo,
-      this.additionalIngredients, this.customName)
+      this.additionalIngredients, this.customName, this.size)
       : super(id, name, price, ProductCategory.Pizza);
+}
+
+enum PizzaSize {
+  Normal,
+  Family,
 }
 
 class Beverage extends Product {
