@@ -17,7 +17,7 @@ class Pizza extends Product {
   final String nutritionInfo;
   final List<String> additionalIngredients;
   final String customName;
-  final PizzaSize size; // Novo campo para tamanho da pizza
+  final PizzaSize size;
 
   Pizza(String id, String name, double price, this.nutritionInfo,
       this.additionalIngredients, this.customName, this.size)

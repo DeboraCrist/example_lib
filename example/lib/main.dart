@@ -5,46 +5,91 @@ import 'package:example_lib/sgp.dart';
 void main() {
   var sgp = SGP();
 
-  var pizzaBasicNormal = Pizza(
-      'p1',
-      'Custom Pizza',
-      15.0,
-      'Calories: 250, Fat: 10g',
-      ['Cheese', 'Tomato Sauce'],
-      'Basic Pizza',
-      PizzaSize.Normal);
-  var pizzaHawaiianFamily = Pizza(
-      'p2',
-      'Custom Pizza',
-      18.0,
-      'Calories: 300, Fat: 12g',
-      ['Cheese', 'Tomato Sauce', 'Ham', 'Pineapple'],
-      'Pizza Hawaiian',
-      PizzaSize.Family);
+  var margheritaPizza = Pizza(
+    'p1',
+    'Pizza Margherita',
+    10.0,
+    'Calories: 1104',
+    ['tomate', 'queijo'],
+    'Margherita',
+    PizzaSize.Normal,
+  );
 
-  var limonade = Beverage('b1', 'Limonade', 3.0, 'Calories: 100, Sugar: 20g');
+  var hawaiianPizza = Pizza(
+    'p2',
+    'Hawaiian Pizza',
+    11.0,
+    'Calories: 1024',
+    ['tomate', 'queijo', 'presunto', 'abacaxi'],
+    'Hawaiian',
+    PizzaSize.Normal,
+  );
 
-  sgp.products = [pizzaBasicNormal, pizzaHawaiianFamily, limonade];
+  var salamiPizza = Pizza(
+    'p3',
+    'Salami Pizza',
+    12.0,
+    'Calories: 1160',
+    ['tomate', 'queijo', 'salame'],
+    'Salami',
+    PizzaSize.Normal,
+  );
+
+  var pizzaFamilySize = PizzaSize.Family;
+
+  var queijo = Product('i1', 'Queijo', 0.69, ProductCategory.FranchiseItem);
+  var presunto = Product('i2', 'Presunto', 0.99, ProductCategory.FranchiseItem);
+  var cebola = Product('i3', 'Cebola', 0.69, ProductCategory.FranchiseItem);
+  var abacaxi = Product('i4', 'Abacaxi', 0.79, ProductCategory.FranchiseItem);
+  var salame = Product('i5', 'Salame', 0.99, ProductCategory.FranchiseItem);
+
+  var limonada =
+      Product('b1', 'Limonada (300ml)', 4.0, ProductCategory.Beverage);
+  var agua =
+      Product('b2', 'Água sem gás (500ml)', 2.5, ProductCategory.Beverage);
+  var vinho =
+      Product('b3', 'Vinho (750ml, 13%)', 21.0, ProductCategory.Beverage);
+
+  var merchandise =
+      Product('m1', 'Camisa PizzaBoa', 22.0, ProductCategory.FranchiseItem);
+  var caneca =
+      Product('m2', 'Caneca PizzaBoa', 8.0, ProductCategory.FranchiseItem);
+
+  sgp.products = [
+    margheritaPizza,
+    hawaiianPizza,
+    salamiPizza,
+    queijo,
+    presunto,
+    cebola,
+    abacaxi,
+    salame,
+    limonada,
+    agua,
+    vinho,
+    merchandise,
+    caneca,
+  ];
 
   var order = Order(1, [
     OrderItem('p1', 2),
-    OrderItem('b1', 3),
     OrderItem('p2', 1),
+    OrderItem('i1', 1),
+    OrderItem('b1', 2),
   ]);
 
   sgp.addOrder(order);
 
-  print('Total for Order ${order.id}: \$${sgp.calculateTotal(order)}');
+  print('Total do pedido ${order.id}: R\$${sgp.calculateTotal(order)}');
 
   for (var item in order.items) {
     var product = sgp.products.firstWhere((p) => p.id == item.productId);
     if (product is Pizza) {
       var sizeString = product.size == PizzaSize.Normal ? 'Normal' : 'Family';
-      print('Pizza: ${product.customName}');
-      print('Size: $sizeString');
-      print('Ingredients: ${product.additionalIngredients.join(', ')}');
+      print('Pizza: ${product.customName} - Tamanho: $sizeString');
+      print('Ingredientes: ${product.additionalIngredients.join(', ')}');
     } else {
-      print('Product: ${product.name}');
+      print('Produto: ${product.name}');
     }
   }
 }
