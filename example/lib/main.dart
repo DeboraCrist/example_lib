@@ -55,21 +55,19 @@ void main() {
   var caneca =
       Product('m2', 'Caneca PizzaBoa', 8.0, ProductCategory.FranchiseItem);
 
-  sgp.products = [
-    margheritaPizza,
-    hawaiianPizza,
-    salamiPizza,
-    queijo,
-    presunto,
-    cebola,
-    abacaxi,
-    salame,
-    limonada,
-    agua,
-    vinho,
-    merchandise,
-    caneca,
-  ];
+  sgp.addProduct(margheritaPizza);
+  sgp.addProduct(hawaiianPizza);
+  sgp.addProduct(salamiPizza);
+  sgp.addProduct(queijo);
+  sgp.addProduct(presunto);
+  sgp.addProduct(cebola);
+  sgp.addProduct(abacaxi);
+  sgp.addProduct(salame);
+  sgp.addProduct(limonada);
+  sgp.addProduct(agua);
+  sgp.addProduct(vinho);
+  sgp.addProduct(merchandise);
+  sgp.addProduct(caneca);
 
   var order = Order(1, [
     OrderItem('p1', 2),
