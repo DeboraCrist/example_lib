@@ -10,7 +10,7 @@ class Product {
   final double price;
   final ProductCategory category;
 
-  Product(this.id, this.name, this.price, this.category);
+  const Product(this.id, this.name, this.price, this.category);
 }
 
 class Pizza extends Product {
@@ -19,9 +19,15 @@ class Pizza extends Product {
   final String customName;
   final PizzaSize size;
 
-  Pizza(String id, String name, double price, this.nutritionInfo,
-      this.additionalIngredients, this.customName, this.size)
-      : super(id, name, price, ProductCategory.Pizza);
+  const Pizza(
+    String id,
+    String name,
+    double price,
+    this.nutritionInfo,
+    this.additionalIngredients,
+    this.customName,
+    this.size,
+  ) : super(id, name, price, ProductCategory.Pizza);
 }
 
 enum PizzaSize {
@@ -32,11 +38,18 @@ enum PizzaSize {
 class Beverage extends Product {
   final String nutritionInfo;
 
-  Beverage(String id, String name, double price, this.nutritionInfo)
-      : super(id, name, price, ProductCategory.Beverage);
+  const Beverage(
+    String id,
+    String name,
+    double price,
+    this.nutritionInfo,
+  ) : super(id, name, price, ProductCategory.Beverage);
 }
 
 class FranchiseItem extends Product {
-  FranchiseItem(String id, String name, double price)
-      : super(id, name, price, ProductCategory.FranchiseItem);
+  const FranchiseItem(
+    String id,
+    String name,
+    double price,
+  ) : super(id, name, price, ProductCategory.FranchiseItem);
 }

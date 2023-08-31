@@ -2,8 +2,8 @@ import 'order.dart';
 import 'product.dart';
 
 class SGP {
-  List<Order> _orders = [];
-  List<Product> _products = [];
+  final List<Order> _orders = [];
+  final List<Product> _products = [];
 
   void addOrder(Order order) {
     if (!_orders.contains(order)) {
@@ -35,6 +35,6 @@ class SGP {
     return total;
   }
 
-  List<Product> get products => _products;
-  List<Order> get orders => _orders;
+  List<Product> get products => List.unmodifiable(_products);
+  List<Order> get orders => List.unmodifiable(_orders);
 }
