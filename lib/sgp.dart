@@ -2,8 +2,17 @@ import 'order.dart';
 import 'product.dart';
 
 class SGP {
+  static SGP? _instance;
+
   final List<Order> _orders = [];
   final List<Product> _products = [];
+
+  SGP._();
+
+  static SGP getInstance() {
+    _instance ??= SGP._();
+    return _instance!;
+  }
 
   void addOrder(Order order) {
     if (!_orders.contains(order)) {
